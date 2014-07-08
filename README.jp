@@ -1,0 +1,2 @@
+このソースはDIPタイプのPIC32MX2xxでBluetoothを使えるようにする為の
+コードです。Smalltoothというコードを一部修正しました。

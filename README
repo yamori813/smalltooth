@@ -1,0 +1,3 @@
+This is port smalltooth for DIP PIC32MX2xx.
+
+Use make command. Not use MPLAB X IDE.
