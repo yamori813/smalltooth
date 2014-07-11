@@ -18,6 +18,7 @@ OBJS = \
 	Microchip/USB/usb_host.o \
 	Microchip/Common/TimeDelay.o \
 	\
+	xprintf.o	\
 	uart1.o 	\
 	crt.o		\
 	sbrk.o		\

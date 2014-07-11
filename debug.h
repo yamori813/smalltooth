@@ -75,19 +75,19 @@ enum
     #define DBG_TRACE()         DBG_trace(DBG_CLASS, __FILE__, __LINE__);
     #define DBG_INFO(X, ...)                                    \
         if ((DBG_CLASS & DBG_MASK) && (DBG_INFO >= DBG_LEVEL))  \
-            SIOPrintString(X, ##__VA_ARGS__);                   \
+              xprintf(X, ##__VA_ARGS__);                   \
 
     #define DBG_EXINFO(X, ...)                                     \
           if ((DBG_CLASS & DBG_MASK) && (DBG_EXINFO >= DBG_LEVEL)) \
-              SIOPrintString(X, ##__VA_ARGS__);                    \
+              xprintf(X, ##__VA_ARGS__);                    \
 
     #define DBG_WARN(X, ...)                                     \
           if ((DBG_CLASS & DBG_MASK) && (DBG_WARN >= DBG_LEVEL)) \
-              SIOPrintString(X, ##__VA_ARGS__);                  \
+              xprintf(X, ##__VA_ARGS__);                  \
 
     #define DBG_ERROR(X, ...)                                   \
           if ((DBG_CLASS & DBG_MASK) && (DBG_ERR >= DBG_LEVEL)) \
-              SIOPrintString(X, ##__VA_ARGS__);                 \
+              xprintf(X, ##__VA_ARGS__);                 \
 
 #else
     #define DBG_DUMP(X, Y)

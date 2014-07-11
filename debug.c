@@ -39,6 +39,7 @@ void DBG_trace(UINT uClass, CHAR *pszFile, INT iLine)
  * following implementation. Please use it just as a reference.
  */
 
+#if 0
 void DBG_info(UINT uClass, CHAR *pszString, ...)
 {
     va_list pArg;
@@ -82,6 +83,7 @@ void DBG_error(UINT uClass, CHAR *pszString, ...)
     }
     va_end(pArg);
 }
+#endif
 
 void DBG_dump(UINT uClass, BYTE *pData, UINT uLen)
 {
@@ -90,8 +92,9 @@ void DBG_dump(UINT uClass, BYTE *pData, UINT uLen)
         INT i;
         for(i = 0; i<uLen; ++i)
         {
-            SIOPrintString("%02X ", pData[i]);
+//            SIOPrintString("%02X ", pData[i]);
+            xprintf("%02X ", pData[i]);
         }
-        SIOPrintString("\r\n");
+        xprintf("\r\n");
     }
 }

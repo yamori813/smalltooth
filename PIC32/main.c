@@ -3,6 +3,7 @@
 #include "HardwareProfile.h"
 #include "PIC32_USB/usb_host_bluetooth.h"
 #include "BTApp.h"
+#include "xprintf.h"
 #include "debug.h"
 
 // *****************************************************************************
@@ -205,6 +206,8 @@ int main ( void )
         unsigned int last_sw2_state = 1;
     //Initialise the system
     SysInit();
+	
+	xfunc_out=UART1PutChar;
 
     //Initialise the USB Host
     if ( USBHostInit(0) == TRUE )
