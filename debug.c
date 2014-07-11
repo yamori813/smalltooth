@@ -30,7 +30,7 @@ inline void DBG_assert(BOOL bCondition, CHAR *pszFile, INT iLine)
 void DBG_trace(UINT uClass, CHAR *pszFile, INT iLine)
 {
     if (uClass & DBG_MASK)
-        SIOPrintString( "0x%04X Trace (%s:%d)\n", uClass, pszFile, iLine);
+        xprintf( "0x%04X Trace (%s:%d)\n", uClass, pszFile, iLine);
 }
 
 /*

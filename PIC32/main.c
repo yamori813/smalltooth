@@ -46,10 +46,6 @@ DEBUG_PutChar() {}
 DEBUG_PutString(char *ptr) {}
 DEBUG_PutHexUINT8() {}
 
-SIOPrintString(char *ptr, ...)
-{
-	UART1PrintString(ptr);
-}
 exit() {}
 
 /*INITIALIZES THE SYSTEM*/

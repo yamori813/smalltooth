@@ -29,6 +29,7 @@
 
 /** Serial IO ******************************************************/
 
+#define SIOPrintString UART1PrintString
 #define SIOPutHex UART1PutHex
 #define SIOPutChar UART1PutChar
 #define SIOPutDec UART1PutDec

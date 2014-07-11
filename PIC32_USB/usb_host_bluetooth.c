@@ -77,7 +77,9 @@ BOOL USBHostBluetoothEventHandler ( BYTE address, USB_EVENT event, void *data, D
             gc_DevData.flags.val        = 0;
             gc_DevData.ID.deviceAddress = 0;
             #ifdef USBHOSTBT_DEBUG
-                SIOPrintString( "USB Host Bluetooth Device Detached: address=%d\n", address );
+                SIOPrintString( "USB Host Bluetooth Device Detached: address=" );
+                SIOPutDec( address );
+                SIOPrintString( "\r\n" );
             #endif
             return TRUE;
 
