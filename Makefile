@@ -2,10 +2,16 @@
 # with PinguinoX.4 (gcc 4.6)
 #
 
-MCS=../../../../microchip_solutions_v2013-06-15
-MPBASE=/Applications/microchip/xc32/v1.20
-MP=$(MPBASE)/pic32mx
-PINPATH=../../../pinguinoX.4-rev959
+MCS=../microchip_solutions_v2013-06-15
+#MPBASE=/Applications/microchip/xc32/v1.20
+#MP=$(MPBASE)/pic32mx
+#PINPATH=../../../pinguinoX.4-rev959
+# https://github.com/biomurph/chipKIT-core-prebuilt
+MP=../chipKIT-core-prebuilt/windows/chipkit-core/pic32/compiler/pic32-tools/pic32mx
+# https://github.com/PinguinoIDE/pinguino-compilers
+PINPATH=../pinguino-compilers/
+
+LKRSCRIPT=selfboot.ld
 PROGDIR=../../pic32prog
 
 # for PIC32MX220F032B
@@ -36,7 +42,7 @@ LDFLAGS=-msoft-float -Wl,--gc-sections $(MIPS16) \
 	-Wl,--defsym,_min_heap_size=$(HEAP_SIZE) \
 	-Wl,-Map=output.map \
 	-T$(LKRSCRIPT) \
-	-T$(PINPATH)/p32/lkr/elf32pic32mx.x
+	-Telf32pic32mx.x
 
 ELF_FLAGS=-EL -Os -ffunction-sections -fdata-sections -march=24kc 
 
@@ -67,7 +73,7 @@ all: $(OBJS)
 	$(CC) $(ELF_FLAGS) $(CFLAGS) $(MIPS16) -c $< -o $@
 
 crt.o : crt0.S
-	$(CC) $(ELF_FLAGS) -I$(PINPATH)/p32/include/non-free -c $< -o $@
+	$(CC) $(ELF_FLAGS) -I$(MP)/include -c $< -o $@
 
 size:
 	$(SIZE) main32.elf
