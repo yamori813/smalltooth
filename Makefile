@@ -26,11 +26,19 @@ PROC=32MX220F032B
 HEAP_SIZE=2048
 #HEAP_SIZE=4096
 
+UNAME_OS := $(shell uname -s)
+ifeq ($(UNAME_OS),Darwin)
 CC=$(PINPATH)/macosx/p32/bin/mips-elf-gcc
 OBJC=$(PINPATH)/macosx/p32/bin/avr-objcopy
 OBJDUMP=$(PINPATH)/macosx/p32/bin/mips-elf-objdump
 SIZE=$(PINPATH)/macosx/p32/bin/mips-elf-size
+else
+CC=$(PINPATH)/linux64/p32/bin/p32-gcc
+OBJC=$(PINPATH)/linux64/p32/bin/p32-objcopy
+OBJDUMP=$(PINPATH)/linux64/p32/bin/p32-objdump
+SIZE=$(PINPATH)/linux64/p32/bin/p32-size
 PROG=$(PROGDIR)/pic32prog
+endif
 
 MIPS16=-mips16
 
